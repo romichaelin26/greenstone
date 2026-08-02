@@ -447,7 +447,7 @@ a {
 
 .stats-card-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     background: var(--bg-glass);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);

@@ -1,6 +1,9 @@
 // Green Stone Landscaping - Main Interactive Engine
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Opening Logo Animation Splash
+    initOpeningLogoAnimation();
+
     // 1. Theme Management (Dark/Light mode)
     initThemeManager();
 
@@ -683,4 +686,17 @@ function initBackToTop() {
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+}
+
+/* ==========================================================================
+   9. OPENING LOGO ANIMATION SPLASH
+   ========================================================================== */
+function initOpeningLogoAnimation() {
+    const splash = document.getElementById('preloader-splash');
+    if (!splash) return;
+
+    // Smooth curtain reveal dismiss after logo shimmer sequence
+    setTimeout(() => {
+        splash.classList.add('hide-splash');
+    }, 2500);
 }

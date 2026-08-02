@@ -215,28 +215,64 @@ const GREEN_STONE_DATA = {
     ],
 
     boqPresets: [
-        { code: "PRE-01", category: "1. Site Preparation", name: "Site Excavation & Soil Levelling", unit: "sq.ft", rate: 15 },
-        { code: "PRE-02", category: "1. Site Preparation", name: "Topsoil Supply & Enrichment", unit: "Cu.ft", rate: 45 },
-        { code: "PRE-03", category: "2. Hard Landscaping", name: "Cut Laterite Stone Masonry Wall", unit: "sq.ft", rate: 160 },
-        { code: "PRE-04", category: "2. Hard Landscaping", name: "Kota Green Limestone Paving", unit: "sq.ft", rate: 85 },
-        { code: "PRE-05", category: "2. Hard Landscaping", name: "Flamed Black Granite Walkway", unit: "sq.ft", rate: 145 },
-        { code: "PRE-06", category: "2. Hard Landscaping", name: "Polished White Pebble Border", unit: "Kg", rate: 40 },
-        { code: "PRE-07", category: "3. Soft Landscaping", name: "Mexican Carpet Grass Lawn Sodding", unit: "sq.ft", rate: 35 },
-        { code: "PRE-08", category: "3. Soft Landscaping", name: "Korean Velvet Grass Sodding", unit: "sq.ft", rate: 48 },
-        { code: "PRE-09", category: "3. Soft Landscaping", name: "Coconut Palm Tree (Mature Specimen)", unit: "Nos", rate: 3500 },
-        { code: "PRE-10", category: "3. Soft Landscaping", name: "Plumeria Frangipani Flowering Tree", unit: "Nos", rate: 1800 },
-        { code: "PRE-11", category: "3. Soft Landscaping", name: "Areca Palm Privacy Screening", unit: "Nos", rate: 650 },
-        { code: "PRE-12", category: "4. Water Features", name: "Cascade Rock Waterfall & Recirculating Pump", unit: "Lump Sum", rate: 75000 },
-        { code: "PRE-13", category: "4. Water Features", name: "Bio-Filtered Koi & Lotus Reflection Pond", unit: "Lump Sum", rate: 110000 },
-        { code: "PRE-14", category: "5. Irrigation System", name: "Weather-Sensing Automatic Drip Irrigation", unit: "sq.ft", rate: 18 },
-        { code: "PRE-15", category: "6. Outdoor Lighting", name: "Brass Low-Voltage LED Garden Spike Light", unit: "Nos", rate: 2800 },
-        { code: "PRE-16", category: "7. Outdoor Structures", name: "Architectural Teak Wood Pergola", unit: "sq.ft", rate: 380 },
-        { code: "PRE-17", category: "8. Boundary & Fencing", name: "Living Green Hedge Privacy Wall", unit: "R.ft", rate: 220 },
-        { code: "PRE-18", category: "9. Garden Accessories", name: "Terracotta Planters & Decorative Pots", unit: "Nos", rate: 1400 },
-        { code: "PRE-19", category: "10. Labour Charges", name: "Landscape Supervisor & Mason Team", unit: "Day", rate: 1500 },
-        { code: "PRE-20", category: "11. Equipment Rental", name: "Mini Excavator & Stone Cutter Rental", unit: "Day", rate: 4500 },
-        { code: "PRE-21", category: "12. Transportation", name: "Material & Plant Vehicle Logistics", unit: "Lump Sum", rate: 8500 },
-        { code: "PRE-22", category: "13. Miscellaneous", name: "Site Testing, Cleaning & Final Handover", unit: "Lump Sum", rate: 5000 }
+        // 1. Site Preparation
+        { code: "IND-01", category: "1. Site Preparation", name: "Red Soil Filling & Levelling", unit: "Cu.ft", rate: 38 },
+        { code: "IND-02", category: "1. Site Preparation", name: "Enriched Organic Cow Dung Manure", unit: "Bag", rate: 220 },
+        { code: "IND-03", category: "1. Site Preparation", name: "Vermicompost & Bio-Fertilizer", unit: "Bag", rate: 350 },
+        
+        // 2. Natural Stones
+        { code: "IND-04", category: "2. Natural Stones", name: "Authentic Cut Laterite Stone Blocks", unit: "sq.ft", rate: 60 },
+        { code: "IND-05", category: "2. Natural Stones", name: "Kota Green Limestone Flooring", unit: "sq.ft", rate: 75 },
+        { code: "IND-06", category: "2. Natural Stones", name: "Tandur Yellow/Blue Stone Slabs", unit: "sq.ft", rate: 85 },
+        { code: "IND-07", category: "2. Natural Stones", name: "Cuddapah Black Slate Paving", unit: "sq.ft", rate: 70 },
+        { code: "IND-08", category: "2. Natural Stones", name: "Flamed Black Granite Walkway", unit: "sq.ft", rate: 140 },
+        { code: "IND-09", category: "2. Natural Stones", name: "Polished White Pebbles", unit: "Kg", rate: 35 },
+
+        // 3. Paving Materials
+        { code: "IND-10", category: "3. Paving Materials", name: "Heavy-Duty Interlocking Paver Blocks (80mm)", unit: "sq.ft", rate: 55 },
+        { code: "IND-11", category: "3. Paving Materials", name: "Terracotta Clay Pavers", unit: "sq.ft", rate: 68 },
+        { code: "IND-12", category: "3. Paving Materials", name: "Chequered Concrete Parking Tiles", unit: "sq.ft", rate: 42 },
+
+        // 4. Lawn & Grass
+        { code: "IND-13", category: "4. Lawn & Grass", name: "Mexican Carpet Grass Sodding", unit: "sq.ft", rate: 32 },
+        { code: "IND-14", category: "4. Lawn & Grass", name: "Selection No.1 Lawn Grass", unit: "sq.ft", rate: 28 },
+        { code: "IND-15", category: "4. Lawn & Grass", name: "Korean Velvet Grass Sodding", unit: "sq.ft", rate: 45 },
+
+        // 5. Trees (Kerala & India)
+        { code: "IND-16", category: "5. Trees & Palms", name: "Kerala Coconut Palm Tree (Tall)", unit: "Nos", rate: 3200 },
+        { code: "IND-17", category: "5. Trees & Palms", name: "Golden Shower Tree (Kani Konna)", unit: "Nos", rate: 1200 },
+        { code: "IND-18", category: "5. Trees & Palms", name: "Plumeria Frangipani Flowering Tree", unit: "Nos", rate: 1800 },
+        { code: "IND-19", category: "5. Trees & Palms", name: "Foxtail Palm (Mature Specimen)", unit: "Nos", rate: 2400 },
+
+        // 6. Flowering Plants
+        { code: "IND-20", category: "6. Flowering Plants", name: "Hybrid Hibiscus (Multi-Color)", unit: "Nos", rate: 180 },
+        { code: "IND-21", category: "6. Flowering Plants", name: "Dwarf Ixora Coccinea", unit: "Nos", rate: 120 },
+        { code: "IND-22", category: "6. Flowering Plants", name: "Heliconia Psittacorum", unit: "Nos", rate: 250 },
+
+        // 7. Shrubs & Hedges
+        { code: "IND-23", category: "7. Shrubs & Hedges", name: "Ficus Panda Topiary Balls", unit: "Nos", rate: 450 },
+        { code: "IND-24", category: "7. Shrubs & Hedges", name: "Golden Duranta Hedge Plants", unit: "Nos", rate: 45 },
+
+        // 8. Ground Covers & Climbers
+        { code: "IND-25", category: "8. Ground Covers & Climbers", name: "Wedelia Trilobata Ground Cover", unit: "sq.ft", rate: 25 },
+        { code: "IND-26", category: "8. Ground Covers & Climbers", name: "Rangoon Creeper & Jasmine Vine", unit: "Nos", rate: 190 },
+
+        // 9. Bamboo & Water Features
+        { code: "IND-27", category: "9. Bamboo & Water Features", name: "Golden Bamboo Screen Clusters", unit: "Nos", rate: 480 },
+        { code: "IND-28", category: "9. Bamboo & Water Features", name: "Natural Rock Cascade Waterfall & Koi Pond", unit: "Lump Sum", rate: 85000 },
+
+        // 10. Irrigation & Lighting
+        { code: "IND-29", category: "10. Irrigation & Lighting", name: "Automatic Drip & Sprinkler Irrigation", unit: "sq.ft", rate: 16 },
+        { code: "IND-30", category: "10. Irrigation & Lighting", name: "Antiqued Brass Low-Voltage LED Spike Light", unit: "Nos", rate: 2500 },
+
+        // 11. Outdoor Structures & Accessories
+        { code: "IND-31", category: "11. Structures & Accessories", name: "WPC Composite Deck & Pergola", unit: "sq.ft", rate: 320 },
+        { code: "IND-32", category: "11. Structures & Accessories", name: "Heavy-Duty FRP Fiber Garden Planters", unit: "Nos", rate: 1650 },
+
+        // 12. Labour & Equipment
+        { code: "IND-33", category: "12. Labour & Equipment", name: "Master Mason & Supervisor Team", unit: "Day", rate: 1400 },
+        { code: "IND-34", category: "12. Labour & Equipment", name: "Mini Excavator & Earth Rammer", unit: "Day", rate: 4200 },
+        { code: "IND-35", category: "13. Transportation", name: "Material & Machinery Logistics", unit: "Lump Sum", rate: 6500 }
     ],
 
     testimonials: [

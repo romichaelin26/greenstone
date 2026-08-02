@@ -470,12 +470,7 @@ function calculateEstimate() {
 }
 
 /* --- ONLINE QUOTATION MAKER ENGINE (LANDSCAPING BOQ) --- */
-let quotationItems = [
-    { code: "PRE-04", category: "2. Hard Landscaping", name: "Kota Green Limestone Paving", unit: "sq.ft", qty: 850, rate: 85, discount: 0, gst: 18 },
-    { code: "PRE-07", category: "3. Soft Landscaping", name: "Mexican Carpet Grass Lawn Sodding", unit: "sq.ft", qty: 1200, rate: 35, discount: 0, gst: 18 },
-    { code: "PRE-10", category: "3. Soft Landscaping", name: "Plumeria Frangipani Flowering Tree", unit: "Nos", qty: 2, rate: 1800, discount: 0, gst: 18 },
-    { code: "PRE-15", category: "6. Outdoor Lighting", name: "Brass Low-Voltage LED Garden Spike Light", unit: "Nos", qty: 12, rate: 2800, discount: 0, gst: 18 }
-];
+let quotationItems = [];
 
 function initQuotationMaker() {
     renderBOQPresetDropdown();
@@ -486,7 +481,7 @@ function renderBOQPresetDropdown() {
     const select = document.getElementById('boq-preset-select');
     if (!select || !GREEN_STONE_DATA.boqPresets) return;
 
-    select.innerHTML = '<option value="">-- Quick Select From 13 BOQ Categories --</option>' +
+    select.innerHTML = '<option value="">-- Quick Select From 19 BOQ Categories --</option>' +
         GREEN_STONE_DATA.boqPresets.map((item, idx) => `
             <option value="${idx}">[${item.category}] ${item.name} (₹${item.rate}/${item.unit})</option>
         `).join('');
@@ -521,6 +516,20 @@ function updateQuotationTable() {
     const grandTotalEl = document.getElementById('quote-grand-total');
 
     if (!tableBody) return;
+
+    if (quotationItems.length === 0) {
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="6" style="text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                    🍃 <em>No BOQ items added yet. Select a preset from the 19 categories above or enter a custom item to build your quotation.</em>
+                </td>
+            </tr>
+        `;
+        if (subtotalEl) subtotalEl.textContent = '₹0';
+        if (taxEl) taxEl.textContent = '₹0';
+        if (grandTotalEl) grandTotalEl.textContent = '₹0';
+        return;
+    }
 
     let subtotal = 0;
     tableBody.innerHTML = quotationItems.map((item, idx) => {

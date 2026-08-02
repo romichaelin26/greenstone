@@ -309,6 +309,19 @@
 
             <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-card);">
                 
+                <!-- PRINT-ONLY OFFICIAL COMPANY HEADER -->
+                <div class="print-only" style="display: none; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--forest-green); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <img src="assets/images/logo.png" alt="Green Stone Logo" style="height: 48px;">
+                        <p style="font-size: 0.8rem; color: #444; margin-top: 4px; margin-bottom: 0;">Chathannoor, Kollam, Kerala | Phone: (+91) 94959 90997 | Email: info@greenstone.in</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <h2 style="color: var(--forest-green); font-size: 1.35rem; margin: 0; font-family: var(--font-heading);">OFFICIAL BOQ QUOTATION</h2>
+                        <p style="font-size: 0.8rem; color: #333; margin: 2px 0;"><strong>Date:</strong> 02 August 2026</p>
+                        <p style="font-size: 0.8rem; color: #333; margin: 2px 0;"><strong>Ref #:</strong> GS-BOQ-2026-089</p>
+                    </div>
+                </div>
+
                 <!-- Customer & Project Header Details -->
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
                     <div>
@@ -390,23 +403,6 @@
                         </thead>
                         <tbody id="quote-items-body"></tbody>
                     </table>
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 1.5rem;">
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <button class="btn btn-primary" onclick="sendQuoteToWhatsApp()">Share Quotation via WhatsApp</button>
-                            <button class="btn btn-secondary" onclick="printQuotation()">Print / Save PDF</button>
-                        </div>
-
-                        <div style="text-align: right; min-width: 260px;">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.4rem;">
-                                <span>Subtotal:</span>
-                                <span id="quote-subtotal" style="font-weight: 600;">₹0</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
-                                <span>Estimated GST (18%):</span>
-                                <span id="quote-tax" style="font-weight: 600;">₹0</span>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: 700; color: var(--sage-green); border-top: 1px solid var(--border-subtle); padding-top: 0.6rem;">
-                                <span>Grand Total:</span>
                                 <span id="quote-grand-total">₹0</span>
                             </div>
                         </div>

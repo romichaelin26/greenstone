@@ -103,13 +103,17 @@ function initNavigation() {
             if (navMenu.classList.contains('active')) {
                 navMenu.style.display = 'flex';
                 navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
+                navMenu.style.position = 'fixed';
+                navMenu.style.top = '60px';
                 navMenu.style.left = '0';
                 navMenu.style.right = '0';
-                navMenu.style.background = 'var(--bg-glass)';
-                navMenu.style.padding = '2rem';
-                navMenu.style.backdropFilter = 'blur(20px)';
+                navMenu.style.bottom = '0';
+                navMenu.style.background = 'rgba(10, 16, 12, 0.98)';
+                navMenu.style.padding = '2.5rem 1.5rem';
+                navMenu.style.gap = '1.5rem';
+                navMenu.style.zIndex = '999';
+                navMenu.style.backdropFilter = 'blur(25px)';
+                navMenu.style.overflowY = 'auto';
             } else {
                 navMenu.style.display = '';
             }

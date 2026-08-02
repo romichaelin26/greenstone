@@ -784,7 +784,7 @@ function initOpeningLogoAnimation() {
         return;
     }
 
-    // Initialize Canvas Particle Engine
+    // Canvas Particle & Ambient Fog Engine (Clean - No Circle Shapes)
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
@@ -794,70 +794,8 @@ function initOpeningLogoAnimation() {
         height = canvas.height = window.innerHeight;
     });
 
-    // Particle Array
-    let particles = [];
-    for (let i = 0; i < 45; i++) {
-        particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            radius: Math.random() * 2.5 + 1,
-            color: Math.random() > 0.5 ? 'rgba(129, 199, 132, 0.6)' : 'rgba(245, 158, 11, 0.5)',
-            vx: (Math.random() - 0.5) * 0.8,
-            vy: -Math.random() * 1.2 - 0.3
-        });
-    }
-
-    // Stepping Stones State
-    let stonesRevealed = 0;
-    const maxStones = 7;
-
     function renderCanvas() {
         ctx.clearRect(0, 0, width, height);
-
-        // Draw Stepping Stones (Scene 2+)
-        if (stonesRevealed > 0) {
-            const startY = height * 0.85;
-            const endY = height * 0.45;
-            const centerX = width / 2;
-
-            for (let i = 0; i < stonesRevealed; i++) {
-                const ratio = i / (maxStones - 1);
-                const currY = startY - (startY - endY) * ratio;
-                const currX = centerX + (i % 2 === 0 ? -35 : 35);
-                const scale = 1 - ratio * 0.35;
-
-                ctx.save();
-                ctx.translate(currX, currY);
-                ctx.scale(scale, scale * 0.5);
-                
-                // Granite / Laterite Stone Ellipse
-                ctx.beginPath();
-                ctx.arc(0, 0, 45, 0, Math.PI * 2);
-                ctx.fillStyle = i % 2 === 0 ? 'rgba(141, 141, 141, 0.4)' : 'rgba(165, 42, 42, 0.45)';
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-                ctx.shadowBlur = 15;
-                ctx.fill();
-                ctx.lineWidth = 2;
-                ctx.strokeStyle = 'rgba(129, 199, 132, 0.5)';
-                ctx.stroke();
-
-                ctx.restore();
-            }
-        }
-
-        // Draw Dew & Pollen Particles
-        particles.forEach(p => {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.y < 0) p.y = height;
-            if (p.x < 0 || p.x > width) p.x = Math.random() * width;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.fill();
-        });
-
         if (!splash.classList.contains('hide-splash')) {
             requestAnimationFrame(renderCanvas);
         }

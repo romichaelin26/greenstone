@@ -621,6 +621,11 @@ function printQuotation() {
     window.print();
 }
 
+function saveAsPDF() {
+    alert("Opening print dialog. Please select 'Save as PDF' as your Destination printer.");
+    window.print();
+}
+
 function sendQuoteToWhatsApp() {
     const clientName = document.getElementById('quote-client-name')?.value || 'Valued Client';
     const location = document.getElementById('quote-client-location')?.value || 'Chathannoor, Kollam';

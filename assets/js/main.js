@@ -486,14 +486,49 @@ function calculateEstimate() {
     }
 }
 
-/* --- ONLINE QUOTATION MAKER ENGINE --- */
+/* --- ONLINE QUOTATION MAKER ENGINE (LANDSCAPING BOQ) --- */
 let quotationItems = [
-    { id: 'paving', name: 'Granite Slate Paving', qty: 1000, rate: 120, unit: 'sq.ft' },
-    { id: 'lawn', name: 'Organic Lawn Sodding', qty: 1000, rate: 45, unit: 'sq.ft' }
+    { code: "PRE-04", category: "2. Hard Landscaping", name: "Kota Green Limestone Paving", unit: "sq.ft", qty: 850, rate: 85, discount: 0, gst: 18 },
+    { code: "PRE-07", category: "3. Soft Landscaping", name: "Mexican Carpet Grass Lawn Sodding", unit: "sq.ft", qty: 1200, rate: 35, discount: 0, gst: 18 },
+    { code: "PRE-10", category: "3. Soft Landscaping", name: "Plumeria Frangipani Flowering Tree", unit: "Nos", qty: 2, rate: 1800, discount: 0, gst: 18 },
+    { code: "PRE-15", category: "6. Outdoor Lighting", name: "Brass Low-Voltage LED Garden Spike Light", unit: "Nos", qty: 12, rate: 2800, discount: 0, gst: 18 }
 ];
 
 function initQuotationMaker() {
+    renderBOQPresetDropdown();
     updateQuotationTable();
+}
+
+function renderBOQPresetDropdown() {
+    const select = document.getElementById('boq-preset-select');
+    if (!select || !GREEN_STONE_DATA.boqPresets) return;
+
+    select.innerHTML = '<option value="">-- Quick Select From 13 BOQ Categories --</option>' +
+        GREEN_STONE_DATA.boqPresets.map((item, idx) => `
+            <option value="${idx}">[${item.category}] ${item.name} (₹${item.rate}/${item.unit})</option>
+        `).join('');
+}
+
+function addPresetBOQItem() {
+    const select = document.getElementById('boq-preset-select');
+    if (!select || select.value === '') return;
+
+    const preset = GREEN_STONE_DATA.boqPresets[parseInt(select.value)];
+    if (!preset) return;
+
+    quotationItems.push({
+        code: preset.code,
+        category: preset.category,
+        name: preset.name,
+        unit: preset.unit,
+        qty: preset.unit === 'sq.ft' ? 500 : (preset.unit === 'Nos' ? 2 : 1),
+        rate: preset.rate,
+        discount: 0,
+        gst: 18
+    });
+
+    updateQuotationTable();
+    select.value = '';
 }
 
 function updateQuotationTable() {
@@ -506,25 +541,42 @@ function updateQuotationTable() {
 
     let subtotal = 0;
     tableBody.innerHTML = quotationItems.map((item, idx) => {
-        const itemTotal = item.qty * item.rate;
-        subtotal += itemTotal;
+        const lineTotal = item.qty * item.rate * (1 - (item.discount || 0) / 100);
+        subtotal += lineTotal;
         return `
             <tr>
-                <td style="padding: 0.85rem;"><strong>${item.name}</strong></td>
-                <td style="padding: 0.85rem;">${item.qty} ${item.unit}</td>
-                <td style="padding: 0.85rem;">₹${item.rate.toLocaleString()}</td>
-                <td style="padding: 0.85rem; text-align: right; font-weight: 700; color: var(--sage-green);">₹${itemTotal.toLocaleString()}</td>
-                <td style="padding: 0.85rem; text-align: center;"><button class="btn btn-secondary btn-sm" onclick="removeQuoteItem(${idx})" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;">Remove</button></td>
+                <td style="padding: 0.75rem; font-size: 0.8rem; color: var(--sage-green); font-weight: 700;">${item.code || 'CUSTOM'}</td>
+                <td style="padding: 0.75rem; font-size: 0.85rem;"><strong>${item.name}</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">${item.category || 'General'}</span></td>
+                <td style="padding: 0.75rem;">
+                    <input type="number" value="${item.qty}" min="1" style="width: 70px; padding: 0.25rem 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;" onchange="updateItemQty(${idx}, this.value)"> ${item.unit}
+                </td>
+                <td style="padding: 0.75rem;">
+                    <input type="number" value="${item.rate}" min="0" style="width: 80px; padding: 0.25rem 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;" onchange="updateItemRate(${idx}, this.value)">
+                </td>
+                <td style="padding: 0.75rem; text-align: right; font-weight: 700; color: var(--sage-green);">₹${Math.round(lineTotal).toLocaleString()}</td>
+                <td style="padding: 0.75rem; text-align: center;">
+                    <button class="btn btn-secondary btn-sm" onclick="removeQuoteItem(${idx})" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; color: #ef4444; border-color: rgba(239, 68, 68, 0.3);">Remove</button>
+                </td>
             </tr>
         `;
     }).join('');
 
-    const tax = Math.round(subtotal * 0.18); // 18% GST
-    const grandTotal = subtotal + tax;
+    const gstAmount = Math.round(subtotal * 0.18);
+    const grandTotal = Math.round(subtotal + gstAmount);
 
     if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toLocaleString()}`;
-    if (taxEl) taxEl.textContent = `₹${tax.toLocaleString()}`;
+    if (taxEl) taxEl.textContent = `₹${gstAmount.toLocaleString()}`;
     if (grandTotalEl) grandTotalEl.textContent = `₹${grandTotal.toLocaleString()}`;
+}
+
+function updateItemQty(idx, val) {
+    quotationItems[idx].qty = parseFloat(val) || 1;
+    updateQuotationTable();
+}
+
+function updateItemRate(idx, val) {
+    quotationItems[idx].rate = parseFloat(val) || 0;
+    updateQuotationTable();
 }
 
 function addQuoteItemFromForm() {
@@ -535,23 +587,34 @@ function addQuoteItemFromForm() {
 
     if (!nameInput || !qtyInput || !rateInput) return;
 
-    const name = nameInput.value || 'Custom Service';
+    const name = nameInput.value || 'Custom Landscaping Item';
     const qty = parseFloat(qtyInput.value) || 1;
     const rate = parseFloat(rateInput.value) || 0;
-    const unit = unitInput ? unitInput.value : 'item';
+    const unit = unitInput ? unitInput.value : 'sq.ft';
 
-    quotationItems.push({ id: `custom-${Date.now()}`, name, qty, rate, unit });
+    quotationItems.push({
+        code: `ITEM-${quotationItems.length + 1}`,
+        category: "Custom Item",
+        name,
+        qty,
+        rate,
+        unit,
+        discount: 0,
+        gst: 18
+    });
+
     updateQuotationTable();
-
-    // Reset inputs
     nameInput.value = '';
-    qtyInput.value = '100';
-    rateInput.value = '50';
 }
 
 function removeQuoteItem(index) {
     quotationItems.splice(index, 1);
     updateQuotationTable();
+}
+
+function saveBOQDraft() {
+    localStorage.setItem('gs_boq_draft', JSON.stringify(quotationItems));
+    alert('Landscaping BOQ Draft saved successfully to browser storage!');
 }
 
 function printQuotation() {
@@ -560,19 +623,20 @@ function printQuotation() {
 
 function sendQuoteToWhatsApp() {
     const clientName = document.getElementById('quote-client-name')?.value || 'Valued Client';
-    const location = document.getElementById('quote-client-location')?.value || 'Kerala';
+    const location = document.getElementById('quote-client-location')?.value || 'Chathannoor, Kollam';
+    const projectType = document.getElementById('quote-project-type')?.value || 'Villa Landscape';
     
     let subtotal = 0;
-    let itemsText = quotationItems.map(i => {
+    let itemsText = quotationItems.map((i, idx) => {
         const itemTotal = i.qty * i.rate;
         subtotal += itemTotal;
-        return `• ${i.name} (${i.qty} ${i.unit}): ₹${itemTotal.toLocaleString()}`;
+        return `${idx + 1}. *${i.name}* (${i.qty} ${i.unit} @ ₹${i.rate}): ₹${Math.round(itemTotal).toLocaleString()}`;
     }).join('%0A');
 
     const tax = Math.round(subtotal * 0.18);
     const grandTotal = subtotal + tax;
 
-    const message = `Hi Green Stone Landscaping,%0A%0AI have generated a custom project quotation:%0A%0A*Client Name:* ${clientName}%0A*Location:* ${location}%0A%0A*Quotation Summary:*%0A${itemsText}%0A%0A*Subtotal:* ₹${subtotal.toLocaleString()}%0A*18% GST:* ₹${tax.toLocaleString()}%0A*Estimated Total:* ₹${grandTotal.toLocaleString()}%0A%0APlease contact me to schedule a site verification.`;
+    const message = `🌿 *GREEN STONE LANDSCAPING*%0A*Official Bill of Quantities (BOQ)*%0A%0A*Customer:* ${clientName}%0A*Location:* ${location}%0A*Project Type:* ${projectType}%0A%0A*ITEMIZED BOQ BREAKDOWN:*%0A${itemsText}%0A%0A----------------------------------%0A*Subtotal:* ₹${subtotal.toLocaleString()}%0A*18% GST:* ₹${tax.toLocaleString()}%0A*ESTIMATED GRAND TOTAL:* ₹${grandTotal.toLocaleString()}%0A----------------------------------%0A%0APlease verify and confirm site inspection booking.%0AOffice: Chathannoor, Kollam, Kerala | Phone: +91 94959 90997`;
 
     window.open(`https://wa.me/919495990997?text=${message}`, '_blank');
 }

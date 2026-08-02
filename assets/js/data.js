@@ -214,6 +214,31 @@ const GREEN_STONE_DATA = {
         { id: "mat-15", name: "Low-Voltage Antiqued Brass Path Light", category: "products", categoryName: "Garden Accessories", image: "assets/images/hero_bg.png", desc: "Solid brass weatherproof 2700K warm LED walkway fixture with ground stake.", price: "₹2,200 - ₹3,800 / fixture", maintenance: "Low", climate: "IP68 Waterproof", sunlight: "N/A", water: "N/A", tags: ["Lighting", "Brass LED", "Nightscape"] }
     ],
 
+    boqPresets: [
+        { code: "PRE-01", category: "1. Site Preparation", name: "Site Excavation & Soil Levelling", unit: "sq.ft", rate: 15 },
+        { code: "PRE-02", category: "1. Site Preparation", name: "Topsoil Supply & Enrichment", unit: "Cu.ft", rate: 45 },
+        { code: "PRE-03", category: "2. Hard Landscaping", name: "Cut Laterite Stone Masonry Wall", unit: "sq.ft", rate: 160 },
+        { code: "PRE-04", category: "2. Hard Landscaping", name: "Kota Green Limestone Paving", unit: "sq.ft", rate: 85 },
+        { code: "PRE-05", category: "2. Hard Landscaping", name: "Flamed Black Granite Walkway", unit: "sq.ft", rate: 145 },
+        { code: "PRE-06", category: "2. Hard Landscaping", name: "Polished White Pebble Border", unit: "Kg", rate: 40 },
+        { code: "PRE-07", category: "3. Soft Landscaping", name: "Mexican Carpet Grass Lawn Sodding", unit: "sq.ft", rate: 35 },
+        { code: "PRE-08", category: "3. Soft Landscaping", name: "Korean Velvet Grass Sodding", unit: "sq.ft", rate: 48 },
+        { code: "PRE-09", category: "3. Soft Landscaping", name: "Coconut Palm Tree (Mature Specimen)", unit: "Nos", rate: 3500 },
+        { code: "PRE-10", category: "3. Soft Landscaping", name: "Plumeria Frangipani Flowering Tree", unit: "Nos", rate: 1800 },
+        { code: "PRE-11", category: "3. Soft Landscaping", name: "Areca Palm Privacy Screening", unit: "Nos", rate: 650 },
+        { code: "PRE-12", category: "4. Water Features", name: "Cascade Rock Waterfall & Recirculating Pump", unit: "Lump Sum", rate: 75000 },
+        { code: "PRE-13", category: "4. Water Features", name: "Bio-Filtered Koi & Lotus Reflection Pond", unit: "Lump Sum", rate: 110000 },
+        { code: "PRE-14", category: "5. Irrigation System", name: "Weather-Sensing Automatic Drip Irrigation", unit: "sq.ft", rate: 18 },
+        { code: "PRE-15", category: "6. Outdoor Lighting", name: "Brass Low-Voltage LED Garden Spike Light", unit: "Nos", rate: 2800 },
+        { code: "PRE-16", category: "7. Outdoor Structures", name: "Architectural Teak Wood Pergola", unit: "sq.ft", rate: 380 },
+        { code: "PRE-17", category: "8. Boundary & Fencing", name: "Living Green Hedge Privacy Wall", unit: "R.ft", rate: 220 },
+        { code: "PRE-18", category: "9. Garden Accessories", name: "Terracotta Planters & Decorative Pots", unit: "Nos", rate: 1400 },
+        { code: "PRE-19", category: "10. Labour Charges", name: "Landscape Supervisor & Mason Team", unit: "Day", rate: 1500 },
+        { code: "PRE-20", category: "11. Equipment Rental", name: "Mini Excavator & Stone Cutter Rental", unit: "Day", rate: 4500 },
+        { code: "PRE-21", category: "12. Transportation", name: "Material & Plant Vehicle Logistics", unit: "Lump Sum", rate: 8500 },
+        { code: "PRE-22", category: "13. Miscellaneous", name: "Site Testing, Cleaning & Final Handover", unit: "Lump Sum", rate: 5000 }
+    ],
+
     testimonials: [
         {
             id: "t-1",

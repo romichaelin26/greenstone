@@ -1441,17 +1441,6 @@ img, video, canvas, svg {
 
 /* --- PRINT MEDIA RULES FOR QUOTATION GENERATOR --- */
 @media print {
-    body {
-        background: #ffffff !important;
-        color: #000000 !important;
-    }
-    .header-navbar, .footer, .back-to-top, .hero-section, .stats-banner, #services, #before-after, #process, #projects, #visualizer, #estimator, #materials, #testimonials, #blog, #faq, #contact, .modal-overlay {
-        display: none !important;
-    }
-    #quotation {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
     #quotation .container {
         max-width: 100% !important;
         padding: 0 !important;

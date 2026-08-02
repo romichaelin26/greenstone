@@ -298,80 +298,98 @@
                         </div>
                     </div>
 
-        <!-- ONLINE QUOTATION MAKER -->
-        <section class="section-padding" id="quotation">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-subtitle">Instant Proposal Builder</span>
-                    <h2 class="section-title">Online Quotation Maker</h2>
-                    <p class="section-desc">Create a customized, itemized project estimate and instantly download or share via WhatsApp.</p>
+        <!-- ONLINE QUOTATION MAKER (LANDSCAPING BOQ) -->
+    <section class="section-padding" id="quotation">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge hero-badge">INSTANT ESTIMATION & BOQ BUILDER</span>
+                <h2 class="section-title">Landscaping Quotation & BOQ Maker</h2>
+                <p class="section-subtitle">Build itemized Bills of Quantities for villa, residential, resort, and commercial landscaping projects across Kerala with instant calculations.</p>
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-card);">
+                
+                <!-- Customer & Project Header Details -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem;">Customer Name</label>
+                        <input type="text" id="quote-client-name" value="Mr. Rajesh Nair" style="width: 100%; padding: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-sm);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem;">Site Location & Address</label>
+                        <input type="text" id="quote-client-location" value="Chathannoor, Kollam, Kerala" style="width: 100%; padding: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-sm);">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.35rem;">Project Type</label>
+                        <select id="quote-project-type" style="width: 100%; padding: 0.75rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-sm);">
+                            <option value="Luxury Villa Landscape">Luxury Villa Landscape</option>
+                            <option value="Residential Garden">Residential Garden</option>
+                            <option value="Resort & Hospitality Outdoor">Resort & Hospitality Outdoor</option>
+                            <option value="Rooftop & Terrace Garden">Rooftop & Terrace Garden</option>
+                            <option value="Commercial Hardscape">Commercial Hardscape</option>
+                            <option value="Farm House Estate">Farm House Estate</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-card);">
-                    <!-- Client Details Row -->
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle);">
-                        <div>
-                            <label class="form-label" for="quote-client-name">Client Name</label>
-                            <input type="text" id="quote-client-name" class="search-input" value="Valued Client" placeholder="e.g. Marcus Vance">
-                        </div>
-                        <div>
-                            <label class="form-label" for="quote-client-location">Property Location</label>
-                            <input type="text" id="quote-client-location" class="search-input" value="Chathannoor, Kollam" placeholder="e.g. Kollam, Kerala">
-                        </div>
-                        <div>
-                            <label class="form-label" for="quote-date">Quotation Date</label>
-                            <input type="text" id="quote-date" class="search-input" value="August 02, 2026" readonly>
-                        </div>
+                <!-- BOQ Quick Category Preset Add Bar -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-subtle); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 280px;">
+                        <label style="display: block; font-size: 0.8rem; color: var(--sage-green); font-weight: 600; margin-bottom: 0.35rem;">Add Preset From 13 BOQ Categories</label>
+                        <select id="boq-preset-select" style="width: 100%; padding: 0.65rem; background: var(--bg-primary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: var(--radius-sm); font-size: 0.875rem;"></select>
                     </div>
-
-                    <!-- Add Quick Item Bar -->
-                    <div style="margin-bottom: 2rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
-                        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--sage-green);">Add Service Line Item</h4>
-                        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 1rem; align-items: end;">
-                            <div>
-                                <label style="font-size: 0.75rem; color: var(--text-muted);">Item / Material Description</label>
-                                <input type="text" id="add-item-name" class="search-input" placeholder="e.g. Natural Basalt Stone Wall" style="padding: 0.6rem 1rem;">
-                            </div>
-                            <div>
-                                <label style="font-size: 0.75rem; color: var(--text-muted);">Quantity</label>
-                                <input type="number" id="add-item-qty" class="search-input" value="100" style="padding: 0.6rem 1rem;">
-                            </div>
-                            <div>
-                                <label style="font-size: 0.75rem; color: var(--text-muted);">Unit</label>
-                                <select id="add-item-unit" class="search-input" style="padding: 0.6rem 1rem;">
-                                    <option value="sq.ft">sq.ft</option>
-                                    <option value="item">item</option>
-                                    <option value="r.ft">r.ft</option>
-                                    <option value="day">day</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label style="font-size: 0.75rem; color: var(--text-muted);">Unit Rate (₹)</label>
-                                <input type="number" id="add-item-rate" class="search-input" value="150" style="padding: 0.6rem 1rem;">
-                            </div>
-                            <div>
-                                <button class="btn btn-primary" onclick="addQuoteItemFromForm()" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">Add Line Item</button>
-                            </div>
-                        </div>
+                    <div style="margin-top: 1.25rem;">
+                        <button class="btn btn-primary" onclick="addPresetBOQItem()" style="padding: 0.65rem 1.25rem; font-size: 0.875rem;">+ Add Preset to BOQ</button>
                     </div>
+                </div>
 
-                    <!-- Itemized Invoice Table -->
-                    <table class="data-table" style="margin-bottom: 2rem;">
+                <!-- Custom Item Entry Form -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 1rem; margin-bottom: 1.5rem; align-items: end; background: rgba(0,0,0,0.15); padding: 1rem; border-radius: var(--radius-md);">
+                    <div>
+                        <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Custom Line Item Name</label>
+                        <input type="text" id="add-item-name" placeholder="e.g. Laterite Stone Retaining Wall" style="width: 100%; padding: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Unit</label>
+                        <select id="add-item-unit" style="width: 100%; padding: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;">
+                            <option value="sq.ft">sq.ft</option>
+                            <option value="Nos">Nos</option>
+                            <option value="R.ft">R.ft</option>
+                            <option value="Cu.ft">Cu.ft</option>
+                            <option value="Cu.m">Cu.m</option>
+                            <option value="Kg">Kg</option>
+                            <option value="Day">Day</option>
+                            <option value="Lump Sum">Lump Sum</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Quantity</label>
+                        <input type="number" id="add-item-qty" value="500" min="1" style="width: 100%; padding: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Rate (₹)</label>
+                        <input type="number" id="add-item-rate" value="120" min="0" style="width: 100%; padding: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 4px;">
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary" onclick="addQuoteItemFromForm()" style="padding: 0.6rem 1rem; font-size: 0.8rem;">+ Add Custom</button>
+                    </div>
+                </div>
+
+                <!-- Itemized BOQ Table -->
+                <div style="overflow-x: auto; margin-bottom: 2rem;">
+                    <table class="data-table">
                         <thead>
-                            <tr>
-                                <th>Item Description</th>
-                                <th>Quantity</th>
-                                <th>Unit Rate</th>
-                                <th style="text-align: right;">Amount</th>
-                                <th style="text-align: center;">Action</th>
+                            <tr style="border-bottom: 1px solid var(--border-subtle); text-align: left; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <th style="padding: 0.75rem;">Code</th>
+                                <th style="padding: 0.75rem;">Item & Category</th>
+                                <th style="padding: 0.75rem;">Quantity</th>
+                                <th style="padding: 0.75rem;">Unit Rate (₹)</th>
+                                <th style="padding: 0.75rem; text-align: right;">Amount (₹)</th>
+                                <th style="padding: 0.75rem; text-align: center;">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="quote-items-body">
-                            <!-- Quotation items rendered dynamically -->
-                        </tbody>
+                        <tbody id="quote-items-body"></tbody>
                     </table>
-
-                    <!-- Total Summary & Export Bar -->
                     <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 1.5rem;">
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                             <button class="btn btn-primary" onclick="sendQuoteToWhatsApp()">Share Quotation via WhatsApp</button>

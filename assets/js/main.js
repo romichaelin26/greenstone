@@ -735,11 +735,20 @@ function initContactForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Thank you for contacting Green Stone Landscaping! Our lead architect will call you within 2 hours.');
-        form.reset();
-    });
+    form.addEventListener('submit', handleContactFormSubmit);
+}
+
+/* --- CONTACT FORM SUBMISSION TO WHATSAPP --- */
+function handleContactFormSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('contact-name')?.value || 'Client';
+    const phone = document.getElementById('contact-phone')?.value || 'Not provided';
+    const service = document.getElementById('contact-service')?.value || 'Landscape Architecture';
+    const message = document.getElementById('contact-message')?.value || 'Requesting a site consultation.';
+
+    const formattedMessage = `🌿 *GREEN STONE LANDSCAPING*%0A*New Consultation Booking Request*%0A%0A*Client Name:* ${name}%0A*Phone Number:* ${phone}%0A*Service Requested:* ${service}%0A*Project Notes:* ${message}%0A%0APlease contact me to schedule a site visit.%0AOffice: Chathannoor, Kollam, Kerala`;
+
+    window.open(`https://wa.me/919495990997?text=${formattedMessage}`, '_blank');
 }
 
 function initBackToTop() {

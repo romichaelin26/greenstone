@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Green Stone Landscaping - Premium modern landscape architecture, garden construction, hardscaping, lighting, water features, and smart irrigation.">
+    <meta name="theme-color" content="#2E7D32">
+    <title>Green Stone Landscaping | Premium Outdoor Architecture</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER & NAVBAR -->
+    <header class="header-navbar" id="main-header">
+        <div class="container nav-wrapper">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo-custom" id="brand-logo" aria-label="Green Stone Landscaping Logo">
+                <img src="assets/images/logo.png" alt="Green Stone Landscaping Logo" class="brand-logo-img">
+            </a>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-item-link active">Home</a></li>
+                    <li><a href="#services" class="nav-item-link">Services</a></li>
+                    <li><a href="#before-after" class="nav-item-link">Before/After</a></li>
+                    <li><a href="#process" class="nav-item-link">Process</a></li>
+                    <li><a href="#projects" class="nav-item-link">Projects</a></li>
+                    <li><a href="#visualizer" class="nav-item-link">Visualizer</a></li>
+                    <li><a href="#estimator" class="nav-item-link">AI Estimator</a></li>
+                    <li><a href="#quotation" class="nav-item-link">Quotation Maker</a></li>
+                    <li><a href="#materials" class="nav-item-link">Materials</a></li>
+                    <li><a href="#contact" class="nav-item-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Actions -->
+            <div class="nav-actions">
+                <button class="btn-icon" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+                    <span id="theme-icon">Mode</span>
+                </button>
+                <a href="https://wa.me/919495990997?text=Hi%20Green%20Stone,%20I%20would%20like%20to%20book%20a%20landscape%20consultation." target="_blank" class="btn btn-secondary" style="padding: 0.6rem 1rem; font-size: 0.85rem;">
+                    WhatsApp
+                </a>
+                <button class="btn btn-secondary" id="open-admin-btn" style="padding: 0.6rem 1rem; font-size: 0.85rem;">
+                    Admin Portal
+                </button>
+                <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">Get Consultation</a>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="home">
+            <div class="hero-bg-media">
+                <img src="assets/images/user_photo_3.jpg" alt="Luxury Green Stone Landscape background">
+            </div>
+            <div class="hero-overlay-gradient"></div>
+            
+            <div class="container hero-content-wrapper">
+                <span class="hero-badge">Sustainable Architectural & Landscape Masterpieces</span>
+                <h1 class="hero-title">Transforming Outdoor Spaces Into Living Masterpieces.</h1>
+                <p class="hero-subheading">
+                    Premium landscape design, garden construction, natural stone paving, mood lighting, smart irrigation, and seasonal maintenance.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
+                    <a href="#projects" class="btn btn-secondary">View Our Projects</a>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- STATS COUNTER BANNER -->
+        <section class="container stats-banner">
+            <div class="stats-card-grid" id="stats-grid-container">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section-padding" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">What We Craft</span>
+                    <h2 class="section-title">Comprehensive Landscaping Services</h2>
+                    <p class="section-desc">From concept 3D visualization to master hardscaping and smart automated care.</p>
+                </div>
+                
+                <div class="services-grid" id="services-grid">
+                    <!-- Services rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- BEFORE & AFTER GALLERY -->
+        <section class="section-padding" id="before-after" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Real Transformations</span>
+                    <h2 class="section-title">Interactive Before & After Gallery</h2>
+                    <p class="section-desc">Drag the center slider to reveal how we transform ordinary yards into luxury sanctuaries.</p>
+                </div>
+
+                <div id="before-after-cases-wrap">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR PROCESS -->
+        <section class="section-padding" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Precision Workflow</span>
+                    <h2 class="section-title">Our 8-Step Landscaping Process</h2>
+                    <p class="section-desc">A seamless journey from initial consultation to final maintenance handover.</p>
+                </div>
+
+                <div class="process-timeline" id="process-timeline-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section class="section-padding" id="projects" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Portfolio Showcase</span>
+                    <h2 class="section-title">Featured Landscaping Projects</h2>
+                    <p class="section-desc">Explore our curated collection of luxury villa estates, courtyards, and commercial plazas.</p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+                    <button class="filter-btn" onclick="filterProjects('villas', this)">Villas</button>
+                    <button class="filter-btn" onclick="filterProjects('gardens', this)">Gardens</button>
+                    <button class="filter-btn" onclick="filterProjects('courtyards', this)">Courtyards</button>
+                    <button class="filter-btn" onclick="filterProjects('commercial', this)">Commercial</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- LANDSCAPE DESIGN VISUALIZER -->
+        <section class="section-padding" id="visualizer">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Interactive Studio</span>
+                    <h2 class="section-title">Landscape Design Visualizer</h2>
+                    <p class="section-desc">Customize garden styles, paving materials, and water elements in real-time.</p>
+                </div>
+
+                <div class="visualizer-card">
+                    <!-- Control Sidebar -->
+                    <div class="visualizer-sidebar">
+                        <div>
+                            <div class="viz-group-title">1. Select Paving Material</div>
+                            <div class="viz-option-grid">
+                                <button class="viz-btn active" onclick="setVizOption('paving', 'Granite', this)">Granite Slate</button>
+                                <button class="viz-btn" onclick="setVizOption('paving', 'Basalt', this)">Black Basalt</button>
+                                <button class="viz-btn" onclick="setVizOption('paving', 'Sandstone', this)">Teak Sandstone</button>
+                                <button class="viz-btn" onclick="setVizOption('paving', 'Zen Pebble', this)">Zen Pebble</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="viz-group-title">2. Garden Flora Style</div>
+                            <div class="viz-option-grid">
+                                <button class="viz-btn active" onclick="setVizOption('plants', 'Tropical', this)">Tropical Palms</button>
+                                <button class="viz-btn" onclick="setVizOption('plants', 'Zen', this)">Zen Bamboo</button>
+                                <button class="viz-btn" onclick="setVizOption('plants', 'Modern', this)">Modern Agave</button>
+                                <button class="viz-btn" onclick="setVizOption('plants', 'English', this)">Boxwood Hedges</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="viz-group-title">3. Add Premium Features</div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked onchange="setVizOption('water', this.checked)"> Water Fountain & Reflection Canal
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked onchange="setVizOption('lighting', this.checked)"> Smart LED Dusk Illumination
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 1rem;">
+                            <button class="btn btn-primary" style="width: 100%;" onclick="alert('Concept preview saved! Request full 3D rendering with site visit below.')">Save Concept Renders</button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Preview -->
+                    <div>
+                        <div class="canvas-preview-wrapper">
+                            <img src="assets/images/user_photo_3.jpg" class="canvas-preview-img" id="viz-canvas-img" alt="Landscape Visualizer Preview">
+                        </div>
+                        <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); text-align: center;" id="viz-status-desc">
+                            Preset: <strong>Granite Slate Paving</strong> + <strong>Tropical Palms</strong> + Water Feature + LED Nightscape
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI GARDEN COST ESTIMATOR -->
+        <section class="section-padding" id="estimator" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Instant Calculator</span>
+                    <h2 class="section-title">AI Garden Cost Estimator</h2>
+                    <p class="section-desc">Select your garden area and features to generate an intelligent project cost breakdown.</p>
+                </div>
+
+                <div class="estimator-box">
+                    <div>
+                        <div class="form-group">
+                            <label class="form-label" for="est-area">Total Landscape Area (Sq.Ft)</label>
+                            <input type="range" id="est-area" class="range-slider" min="500" max="10000" step="250" value="2500">
+                            <div style="display: flex; justify-content: space-between; font-weight: 700; color: var(--sage-green); margin-top: 0.5rem;">
+                                <span>500 sq.ft</span>
+                                <span id="est-area-val">2,500 sq.ft</span>
+                                <span>10,000+ sq.ft</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="est-style">Design & Material Quality</label>
+                            <select id="est-style" class="search-input" onchange="calculateEstimate()">
+                                <option value="modern" selected>Modern Minimalist (Granite & Native Flora)</option>
+                                <option value="luxury">Luxury Estate (Black Basalt, Water Walls & Smart Controls)</option>
+                                <option value="zen">Zen Sanctuary (Hand-cut Stones, Bonsai & Lotus Canal)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Included Features</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label"><input type="checkbox" id="chk-water" checked onchange="calculateEstimate()"> Water Feature</label>
+                                <label class="checkbox-label"><input type="checkbox" id="chk-lighting" checked onchange="calculateEstimate()"> Smart LED Lighting</label>
+                                <label class="checkbox-label"><input type="checkbox" id="chk-hardscape" checked onchange="calculateEstimate()"> Patios & Pathways</label>
+                                <label class="checkbox-label"><input type="checkbox" id="chk-irrigation" checked onchange="calculateEstimate()"> Automated Irrigation</label>
+                            </div>
+                        </div>
+                    </div>
+
+        <!-- ONLINE QUOTATION MAKER -->
+        <section class="section-padding" id="quotation">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Instant Proposal Builder</span>
+                    <h2 class="section-title">Online Quotation Maker</h2>
+                    <p class="section-desc">Create a customized, itemized project estimate and instantly download or share via WhatsApp.</p>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-card);">
+                    <!-- Client Details Row -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle);">
+                        <div>
+                            <label class="form-label" for="quote-client-name">Client Name</label>
+                            <input type="text" id="quote-client-name" class="search-input" value="Valued Client" placeholder="e.g. Marcus Vance">
+                        </div>
+                        <div>
+                            <label class="form-label" for="quote-client-location">Property Location</label>
+                            <input type="text" id="quote-client-location" class="search-input" value="Chathannoor, Kollam" placeholder="e.g. Kollam, Kerala">
+                        </div>
+                        <div>
+                            <label class="form-label" for="quote-date">Quotation Date</label>
+                            <input type="text" id="quote-date" class="search-input" value="August 02, 2026" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Add Quick Item Bar -->
+                    <div style="margin-bottom: 2rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--sage-green);">Add Service Line Item</h4>
+                        <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 1rem; align-items: end;">
+                            <div>
+                                <label style="font-size: 0.75rem; color: var(--text-muted);">Item / Material Description</label>
+                                <input type="text" id="add-item-name" class="search-input" placeholder="e.g. Natural Basalt Stone Wall" style="padding: 0.6rem 1rem;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.75rem; color: var(--text-muted);">Quantity</label>
+                                <input type="number" id="add-item-qty" class="search-input" value="100" style="padding: 0.6rem 1rem;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.75rem; color: var(--text-muted);">Unit</label>
+                                <select id="add-item-unit" class="search-input" style="padding: 0.6rem 1rem;">
+                                    <option value="sq.ft">sq.ft</option>
+                                    <option value="item">item</option>
+                                    <option value="r.ft">r.ft</option>
+                                    <option value="day">day</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 0.75rem; color: var(--text-muted);">Unit Rate (₹)</label>
+                                <input type="number" id="add-item-rate" class="search-input" value="150" style="padding: 0.6rem 1rem;">
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" onclick="addQuoteItemFromForm()" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">Add Line Item</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Itemized Invoice Table -->
+                    <table class="data-table" style="margin-bottom: 2rem;">
+                        <thead>
+                            <tr>
+                                <th>Item Description</th>
+                                <th>Quantity</th>
+                                <th>Unit Rate</th>
+                                <th style="text-align: right;">Amount</th>
+                                <th style="text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quote-items-body">
+                            <!-- Quotation items rendered dynamically -->
+                        </tbody>
+                    </table>
+
+                    <!-- Total Summary & Export Bar -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 1.5rem;">
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="sendQuoteToWhatsApp()">Share Quotation via WhatsApp</button>
+                            <button class="btn btn-secondary" onclick="printQuotation()">Print / Save PDF</button>
+                        </div>
+
+                        <div style="text-align: right; min-width: 260px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.4rem;">
+                                <span>Subtotal:</span>
+                                <span id="quote-subtotal" style="font-weight: 600;">₹0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                                <span>Estimated GST (18%):</span>
+                                <span id="quote-tax" style="font-weight: 600;">₹0</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 1.4rem; font-weight: 700; color: var(--sage-green); border-top: 1px solid var(--border-subtle); padding-top: 0.6rem;">
+                                <span>Grand Total:</span>
+                                <span id="quote-grand-total">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MATERIAL LIBRARY -->
+        <section class="section-padding" id="materials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Materials & Products</span>
+                    <h2 class="section-title">Natural Stone & Plant Catalog</h2>
+                    <p class="section-desc">Explore hand-selected stones, eco-friendly pavers, architectural plants, and smart lighting.</p>
+                </div>
+
+                <div class="search-filter-row">
+                    <div class="search-input-wrap">
+                        <input type="text" class="search-input" placeholder="Search Laterite, Kota stone, Mexican grass, Coconut palm, Plumeria..." oninput="renderMaterialLibrary(this.value)">
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="filter-btn active" onclick="renderMaterialLibrary('', 'all')">All Library</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'stones')">Natural Stones</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'pavers')">Pavers</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'lawns')">Lawns & Grass</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'trees')">Trees & Palms</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'flowers')">Flowers & Flora</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'waterplants')">Water Plants</button>
+                        <button class="filter-btn" onclick="renderMaterialLibrary('', 'products')">Accessories</button>
+                    </div>
+                </div>
+
+                <div class="materials-grid" id="materials-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="section-padding" id="testimonials" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Client Reviews</span>
+                    <h2 class="section-title">Trusted By Homeowners & Developers</h2>
+                    <p class="section-desc">See what clients say about our precision engineering and natural stone craftsmanship.</p>
+                </div>
+
+                <div class="testimonials-slider-wrap" id="testimonials-container">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section class="section-padding" id="blog">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Design Insights</span>
+                    <h2 class="section-title">Latest Landscape Architecture Journal</h2>
+                    <p class="section-desc">Guides, maintenance tips, stone selections, and outdoor living ideas.</p>
+                </div>
+
+                <div class="projects-grid" id="blog-grid">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="section-padding" id="faq" style="background: var(--bg-secondary);">
+            <div class="container" style="max-width: 840px;">
+                <div class="section-header">
+                    <span class="section-subtitle">Got Questions?</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-desc">Everything you need to know about starting your landscape design project.</p>
+                </div>
+
+                <div id="faq-accordion-wrap">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section-padding" id="contact">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                    <!-- Contact Form -->
+                    <div style="background: var(--bg-card); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Book A Consultation</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem;">Speak directly with our principal landscape architects.</p>
+
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" class="search-input" required placeholder="e.g. Eleanor Vance">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" class="search-input" required placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" class="search-input" required placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-service">Interested Service</label>
+                                <select id="contact-service" class="search-input">
+                                    <option value="all">Full Turnkey Landscape Design & Construction</option>
+                                    <option value="hardscape">Hardscaping & Stone Paving</option>
+                                    <option value="water">Custom Water Feature & Fountains</option>
+                                    <option value="lighting">Smart LED Outdoor Lighting</option>
+                                    <option value="maintenance">Garden Care & Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contact-msg">Project Scope & Details</label>
+                                <textarea id="contact-msg" class="search-input" rows="4" style="border-radius: var(--radius-md);" placeholder="Tell us about your property, garden size, and goals..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Consultation Request</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info & Direct Links -->
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <span class="section-subtitle">Reach Out Directly</span>
+                            <h2 style="font-size: 2.25rem; margin: 0.5rem 0 1.5rem 0;">Get In Touch</h2>
+                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">Our design studio is ready to collaborate on your next outdoor living project.</p>
+
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+                                <div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">Phone & Direct Hotline</div>
+                                    <a href="tel:+919495990997" style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary);">+91 94959 90997</a>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">Email Enquiries</div>
+                                    <a href="mailto:info@greenstonelandscape.in" style="font-weight: 700; color: var(--text-primary);">info@greenstonelandscape.in</a>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">WhatsApp Instant Consultation</div>
+                                    <a href="https://wa.me/919495990997?text=Hi%20Green%20Stone,%20I%20would%20like%20to%20book%20a%20landscape%20consultation." target="_blank" style="color: var(--sage-green); font-weight: 700;">Chat On WhatsApp (+91 94959 90997)</a>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">Main Office & Studio</div>
+                                    <div style="font-weight: 700;">Chathannoor, Kollam, Kerala, India</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="tel:+919495990997" class="btn btn-primary">Call Now (+91 94959 90997)</a>
+                            <a href="https://wa.me/919495990997?text=Hi%20Green%20Stone,%20I%20would%20like%20to%20book%20a%20landscape%20consultation." target="_blank" class="btn btn-secondary">Instant WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ADMIN DASHBOARD MODAL -->
+    <div class="modal-overlay" id="admin-modal-overlay">
+        <div class="admin-dashboard-container">
+            <div class="admin-sidebar">
+                <div style="padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 1rem;">
+                    <img src="assets/images/logo.png" alt="Logo" class="brand-logo-img" style="height: 36px;">
+                    <div style="font-size: 0.75rem; color: var(--sage-green); margin-top: 4px; font-weight: 700;">ADMIN CONTROL CENTER</div>
+                </div>
+
+                <button class="admin-nav-btn active" onclick="switchAdminTab('analytics', this)">Analytics</button>
+                <button class="admin-nav-btn" onclick="switchAdminTab('enquiries', this)">Enquiries</button>
+                <button class="admin-nav-btn" onclick="switchAdminTab('services', this)">Services</button>
+                <button class="admin-nav-btn" onclick="switchAdminTab('projects', this)">Projects</button>
+                <button class="admin-nav-btn" onclick="switchAdminTab('materials', this)">Materials</button>
+                
+                <div style="margin-top: auto;">
+                    <button class="btn btn-secondary btn-sm" id="close-admin-btn" style="width: 100%;">Exit Portal</button>
+                </div>
+            </div>
+
+            <div class="admin-content-area" id="admin-tab-content">
+                <h2 style="margin-bottom: 1.5rem;">Performance Analytics</h2>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Monthly Traffic</div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--sage-green);">18,420</div>
+                        <div style="color: #10b981; font-size: 0.8rem;">↑ 14% vs last month</div>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Consultation Leads</div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--sage-green);">142</div>
+                        <div style="color: #10b981; font-size: 0.8rem;">↑ 22% conversion</div>
+                    </div>
+                    <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+                        <div style="color: var(--text-muted); font-size: 0.85rem;">Avg Project Value</div>
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--sage-green);">$84,500</div>
+                        <div style="color: var(--text-muted); font-size: 0.8rem;">Q3 Target Reached</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="assets/images/logo.png" alt="Green Stone Logo" class="brand-logo-img" style="height: 48px; margin-bottom: 1rem;">
+                    <p style="color: var(--text-secondary); max-width: 340px; font-size: 0.9rem;">
+                        Transforming outdoor spaces into living masterpieces through sustainable design, natural stone hardscaping, and smart water management.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem; margin-bottom: 1.25rem; color: var(--sage-green);">Quick Links</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Project Portfolio</a></li>
+                        <li><a href="#visualizer">Design Visualizer</a></li>
+                        <li><a href="#estimator">AI Cost Estimator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem; margin-bottom: 1.25rem; color: var(--sage-green);">Services</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <li><a href="#services">Landscape Architecture</a></li>
+                        <li><a href="#services">Hardscaping & Paving</a></li>
+                        <li><a href="#services">Water Features</a></li>
+                        <li><a href="#services">Smart Irrigation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 1rem; margin-bottom: 1.25rem; color: var(--sage-green);">Newsletter</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 1rem;">Subscribe for landscape design tips and seasonal garden guides.</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="email" class="search-input" placeholder="Your email address" style="padding: 0.6rem 1rem;">
+                        <button class="btn btn-primary" style="padding: 0.6rem 1rem;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; gap: 1rem;">
+                <div>&copy; 2026 Green Stone Landscaping. All rights reserved.</div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="btn-icon back-to-top" id="back-to-top" aria-label="Back to Top">
+        ↑
+    </button>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

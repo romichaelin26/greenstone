@@ -17,14 +17,27 @@
 </head>
 <body>
 
-    <!-- CINEMATIC OPENING LOGO ANIMATION SPLASH -->
+    <!-- CINEMATIC KERALA LANDSCAPE OPENING ANIMATION (6-8 SECONDS) -->
     <div id="preloader-splash" class="preloader-splash">
+        <div class="splash-bg-layer" id="splash-bg-layer"></div>
+        <canvas id="splash-canvas" class="splash-particle-canvas"></canvas>
+        <div class="splash-mist-layer"></div>
+
+        <!-- Interactive Skip & Mute Controls -->
+        <div class="splash-controls-bar">
+            <button class="splash-btn" id="splash-mute-btn" onclick="toggleSplashAudio()">Mute</button>
+            <button class="splash-btn" id="splash-skip-btn" onclick="skipSplashAnimation()">Skip Intro</button>
+        </div>
+
         <div class="splash-content">
-            <div class="splash-logo-wrap">
+            <div class="splash-stage-title" id="splash-stage-text">Nature Awakens</div>
+            
+            <div class="splash-logo-stage" id="splash-logo-stage">
                 <img src="assets/images/logo.png" alt="Green Stone Landscaping Logo" class="splash-logo-img">
-                <div class="splash-shimmer"></div>
+                <p style="font-family: var(--font-heading); font-size: 0.9rem; letter-spacing: 0.25em; color: var(--sage-green); margin-top: 1rem; text-transform: uppercase;">
+                    Transforming Outdoor Spaces Into Living Masterpieces
+                </p>
             </div>
-            <p class="splash-tagline">Transforming Outdoor Spaces Into Living Masterpieces</p>
         </div>
     </div>
 

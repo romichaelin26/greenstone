@@ -689,14 +689,212 @@ function initBackToTop() {
 }
 
 /* ==========================================================================
-   9. OPENING LOGO ANIMATION SPLASH
+   9. CINEMATIC KERALA LANDSCAPE OPENING ANIMATION ENGINE (6-8 SECONDS)
    ========================================================================== */
+let splashAudioMuted = false;
+let splashAnimTimer = null;
+let splashAudioCtx = null;
+
 function initOpeningLogoAnimation() {
     const splash = document.getElementById('preloader-splash');
-    if (!splash) return;
+    const bgLayer = document.getElementById('splash-bg-layer');
+    const stageText = document.getElementById('splash-stage-text');
+    const logoStage = document.getElementById('splash-logo-stage');
+    const canvas = document.getElementById('splash-canvas');
 
-    // Smooth curtain reveal dismiss after logo shimmer sequence
+    if (!splash || !canvas) return;
+
+    // Check prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        splash.style.display = 'none';
+        return;
+    }
+
+    // Initialize Canvas Particle Engine
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    // Particle Array
+    let particles = [];
+    for (let i = 0; i < 45; i++) {
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: Math.random() * 2.5 + 1,
+            color: Math.random() > 0.5 ? 'rgba(129, 199, 132, 0.6)' : 'rgba(245, 158, 11, 0.5)',
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: -Math.random() * 1.2 - 0.3
+        });
+    }
+
+    // Stepping Stones State
+    let stonesRevealed = 0;
+    const maxStones = 7;
+
+    function renderCanvas() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw Stepping Stones (Scene 2+)
+        if (stonesRevealed > 0) {
+            const startY = height * 0.85;
+            const endY = height * 0.45;
+            const centerX = width / 2;
+
+            for (let i = 0; i < stonesRevealed; i++) {
+                const ratio = i / (maxStones - 1);
+                const currY = startY - (startY - endY) * ratio;
+                const currX = centerX + (i % 2 === 0 ? -35 : 35);
+                const scale = 1 - ratio * 0.35;
+
+                ctx.save();
+                ctx.translate(currX, currY);
+                ctx.scale(scale, scale * 0.5);
+                
+                // Granite / Laterite Stone Ellipse
+                ctx.beginPath();
+                ctx.arc(0, 0, 45, 0, Math.PI * 2);
+                ctx.fillStyle = i % 2 === 0 ? 'rgba(141, 141, 141, 0.4)' : 'rgba(165, 42, 42, 0.45)';
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+                ctx.shadowBlur = 15;
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgba(129, 199, 132, 0.5)';
+                ctx.stroke();
+
+                ctx.restore();
+            }
+        }
+
+        // Draw Dew & Pollen Particles
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.y < 0) p.y = height;
+            if (p.x < 0 || p.x > width) p.x = Math.random() * width;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.fill();
+        });
+
+        if (!splash.classList.contains('hide-splash')) {
+            requestAnimationFrame(renderCanvas);
+        }
+    }
+    renderCanvas();
+
+    // 4-SCENE SEQUENCE ORCHESTRATION (0 - 8 SECONDS)
+    
+    // SCENE 1: Nature Awakens (0s - 2s)
+    playAmbientTone(220, 1.5);
+    if (stageText) stageText.textContent = "Nature Awakens in Kerala";
+
+    // SCENE 2: Stone Walkway Appears (2s - 4s)
     setTimeout(() => {
+        if (stageText) {
+            stageText.style.opacity = '0';
+            setTimeout(() => {
+                stageText.textContent = "Crafting Natural Stone Pathways";
+                stageText.style.opacity = '1';
+            }, 300);
+        }
+        
+        let stoneInterval = setInterval(() => {
+            if (stonesRevealed < maxStones) stonesRevealed++;
+            else clearInterval(stoneInterval);
+        }, 220);
+
+        playAmbientTone(330, 1.2);
+    }, 2000);
+
+    // SCENE 3: Kerala Garden Reveals (4s - 6s)
+    setTimeout(() => {
+        if (bgLayer) {
+            bgLayer.style.backgroundImage = "url('assets/images/user_photo_3.jpg')";
+            bgLayer.classList.add('active');
+        }
+        if (stageText) {
+            stageText.style.opacity = '0';
+            setTimeout(() => {
+                stageText.textContent = "Harmonizing Architecture with Nature";
+                stageText.style.opacity = '1';
+            }, 300);
+        }
+
+        playAmbientTone(440, 1.5);
+    }, 4000);
+
+    // SCENE 4: Logo Formation & Chime (6s - 8s)
+    setTimeout(() => {
+        if (stageText) stageText.style.opacity = '0';
+        if (logoStage) logoStage.classList.add('active');
+
+        playLogoChime();
+    }, 6000);
+
+    // TRANSITION TO HOMEPAGE (8s)
+    splashAnimTimer = setTimeout(() => {
+        skipSplashAnimation();
+    }, 8200);
+}
+
+function skipSplashAnimation() {
+    const splash = document.getElementById('preloader-splash');
+    if (splash) {
         splash.classList.add('hide-splash');
-    }, 2500);
+    }
+    if (splashAnimTimer) clearTimeout(splashAnimTimer);
+}
+
+function toggleSplashAudio() {
+    splashAudioMuted = !splashAudioMuted;
+    const btn = document.getElementById('splash-mute-btn');
+    if (btn) btn.textContent = splashAudioMuted ? 'Unmute' : 'Mute';
+}
+
+function playAmbientTone(freq, duration) {
+    if (splashAudioMuted) return;
+    try {
+        if (!splashAudioCtx) splashAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = splashAudioCtx.createOscillator();
+        const gain = splashAudioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, splashAudioCtx.currentTime);
+        gain.gain.setValueAtTime(0.01, splashAudioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.12, splashAudioCtx.currentTime + 0.3);
+        gain.gain.exponentialRampToValueAtTime(0.001, splashAudioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(splashAudioCtx.destination);
+        osc.start();
+        osc.stop(splashAudioCtx.currentTime + duration);
+    } catch (e) {}
+}
+
+function playLogoChime() {
+    if (splashAudioMuted) return;
+    try {
+        if (!splashAudioCtx) splashAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, idx) => {
+            setTimeout(() => {
+                const osc = splashAudioCtx.createOscillator();
+                const gain = splashAudioCtx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, splashAudioCtx.currentTime);
+                gain.gain.setValueAtTime(0.01, splashAudioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.2, splashAudioCtx.currentTime + 0.1);
+                gain.gain.exponentialRampToValueAtTime(0.001, splashAudioCtx.currentTime + 1.8);
+                osc.connect(gain);
+                gain.connect(splashAudioCtx.destination);
+                osc.start();
+                osc.stop(splashAudioCtx.currentTime + 1.8);
+            }, idx * 140);
+        });
+    } catch (e) {}
 }

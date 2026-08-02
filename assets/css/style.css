@@ -4,32 +4,34 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* --- COLOR PALETTE & DESIGN TOKENS --- */
+/* --- COLOR PALETTE & DESIGN TOKENS (GREEN & CHARCOAL GREY THEME) --- */
 :root {
-    /* Color Palette */
+    /* Core Brand Colors */
     --forest-green: #2E7D32;
     --forest-dark: #1b4d1e;
-    --forest-glow: rgba(46, 125, 50, 0.25);
+    --forest-glow: rgba(46, 125, 50, 0.3);
     --sage-green: #81C784;
     --sage-muted: rgba(129, 199, 132, 0.15);
-    --charcoal-black: #121614;
-    --charcoal-card: #1a221e;
-    --charcoal-border: rgba(255, 255, 255, 0.1);
-    --stone-gray: #8D8D8D;
-    --stone-light: #e2e8f0;
     
-    /* Dynamic Theme Variables (Default Dark) */
-    --bg-primary: #0d120f;
-    --bg-secondary: #141c17;
-    --bg-card: rgba(23, 33, 27, 0.7);
-    --bg-glass: rgba(20, 30, 24, 0.65);
-    --text-primary: #ffffff;
-    --text-secondary: #9cb0a3;
-    --text-muted: #677b6e;
-    --border-subtle: rgba(129, 199, 132, 0.15);
-    --border-hover: rgba(129, 199, 132, 0.4);
-    --shadow-glow: 0 10px 30px rgba(46, 125, 50, 0.18);
-    --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.35);
+    /* Charcoal Grey Palette */
+    --charcoal-deep: #141715;
+    --charcoal-dark: #1f2420;
+    --charcoal-card: #272d29;
+    --charcoal-gray: #3a423d;
+    --charcoal-stone: #8D8D8D;
+    
+    /* Dynamic Theme Variables (Default Charcoal & Green Dark) */
+    --bg-primary: #121614;
+    --bg-secondary: #19201c;
+    --bg-card: rgba(33, 41, 36, 0.85);
+    --bg-glass: rgba(25, 32, 28, 0.8);
+    --text-primary: #f5f7f5;
+    --text-secondary: #a3b3a7;
+    --text-muted: #6e7f73;
+    --border-subtle: rgba(141, 141, 141, 0.22);
+    --border-hover: rgba(129, 199, 132, 0.45);
+    --shadow-glow: 0 10px 30px rgba(46, 125, 50, 0.22);
+    --shadow-card: 0 20px 45px rgba(0, 0, 0, 0.45);
 
     /* Fonts */
     --font-heading: 'Space Grotesk', sans-serif;
@@ -43,19 +45,19 @@
     --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Light Theme Override */
+/* Light Theme (Green & Charcoal Light Override) */
 [data-theme="light"] {
-    --bg-primary: #f4f7f4;
-    --bg-secondary: #e8efe8;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --bg-glass: rgba(255, 255, 255, 0.75);
-    --text-primary: #121814;
-    --text-secondary: #3d4f43;
-    --text-muted: #657a6c;
-    --border-subtle: rgba(46, 125, 50, 0.15);
-    --border-hover: rgba(46, 125, 50, 0.4);
-    --shadow-glow: 0 10px 25px rgba(46, 125, 50, 0.12);
-    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.06);
+    --bg-primary: #edf1ed;
+    --bg-secondary: #e2e8e2;
+    --bg-card: rgba(255, 255, 255, 0.92);
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --text-primary: #1f2420;
+    --text-secondary: #3e4741;
+    --text-muted: #66736a;
+    --border-subtle: rgba(46, 125, 50, 0.18);
+    --border-hover: rgba(46, 125, 50, 0.45);
+    --shadow-glow: 0 10px 25px rgba(46, 125, 50, 0.15);
+    --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 /* --- CINEMATIC KERALA LANDSCAPE OPENING ANIMATION (6-8 SECONDS) --- */

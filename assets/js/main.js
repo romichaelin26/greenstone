@@ -64,9 +64,11 @@ function updateThemeIcon(theme) {
    ========================================================================== */
 function initNavigation() {
     const navbar = document.getElementById('main-header');
+    const bottomNav = document.getElementById('mobile-bottom-nav');
+    const quickBar = document.getElementById('floating-quick-bar');
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-item-link');
+    const navLinks = document.querySelectorAll('.nav-item-link, .mobile-bottom-link');
 
     let lastScrollY = window.scrollY;
 
@@ -80,11 +82,15 @@ function initNavigation() {
             navbar.classList.remove('scrolled');
         }
 
-        // Smart Auto-Hide Header: Hide when scrolling down, show when scrolling up
+        // Smart Auto-Hide Header & Mobile Navigation Bars on Scroll
         if (currentScrollY > 120 && currentScrollY > lastScrollY) {
             navbar.classList.add('nav-hidden');
+            if (bottomNav) bottomNav.classList.add('nav-hidden');
+            if (quickBar) quickBar.classList.add('nav-hidden');
         } else {
             navbar.classList.remove('nav-hidden');
+            if (bottomNav) bottomNav.classList.remove('nav-hidden');
+            if (quickBar) quickBar.classList.remove('nav-hidden');
         }
 
         lastScrollY = currentScrollY;

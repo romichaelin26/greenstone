@@ -611,7 +611,7 @@ function saveAsPDF() {
 
 function sendQuoteToWhatsApp() {
     const clientName = document.getElementById('quote-client-name')?.value || 'Valued Client';
-    const location = document.getElementById('quote-client-location')?.value || 'Chathannoor, Kollam';
+    const location = document.getElementById('quote-client-location')?.value || 'Kerala';
     const projectType = document.getElementById('quote-project-type')?.value || 'Villa Landscape';
     
     let subtotal = 0;

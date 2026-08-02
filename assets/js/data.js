@@ -15,7 +15,7 @@ const GREEN_STONE_DATA = {
     
     stats: [
         { label: "Completed Projects", value: "50+", count: 50, suffix: "+" },
-        { label: "Years Experience", value: "12+", count: 12, suffix: "+" },
+        { label: "Years Experience", value: "6+", count: 6, suffix: "+" },
         { label: "Client Satisfaction", value: "98%", count: 98, suffix: "%" }
     ],
 
